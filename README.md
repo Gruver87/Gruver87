@@ -4,8 +4,19 @@
 Claims need packs on disk. No silent green. Not financial advice. Not a launched public mainnet.
 
 ```text
-Tech-lead 60s path: architecture ↓ → pin order ↓ → one-command demos ↓ → evidence honesty
+Beginner 60s path: clone dup-lab → make bootstrap → open in Cursor (skills+MCP auto-wired)
+Tech-lead path: architecture ↓ → pin order ↓ → one-command demos ↓ → evidence honesty
 ```
+
+## Start here (automatic wiring)
+
+```bash
+git clone https://github.com/Gruver87/dup-lab.git && cd dup-lab
+make bootstrap          # Windows: .\scripts\bootstrap.ps1
+# Open dup-lab/ (or dup-lab.code-workspace) in Cursor — skills + MCP already connected
+```
+
+Orchestrator: [`dup-lab`](https://github.com/Gruver87/dup-lab) — clones siblings, installs skills globally, writes `.cursor/mcp.json`, runs fixture demos.
 
 ## Architecture (3 layers)
 
@@ -49,11 +60,11 @@ flowchart TB
 
 | # | Repo | Why pin |
 |---|------|---------|
-| 1 | [`dup-skill-trust-plane`](https://github.com/Gruver87/dup-skill-trust-plane) | Control plane — Skill Cards, self-host API |
-| 2 | [`dup-skills-eval`](https://github.com/Gruver87/dup-skills-eval) | Deterministic eval + E2E dashboard |
-| 3 | [`dup-evidence-graph`](https://github.com/Gruver87/dup-evidence-graph) | Fail-closed claim ↔ pack graph |
-| 4 | [`dup-policy-gate`](https://github.com/Gruver87/dup-policy-gate) | Spot-only policy before any order |
-| 5 | [`dup-agent-skills`](https://github.com/Gruver87/dup-agent-skills) | Production skills pack under test |
+| 1 | [`dup-lab`](https://github.com/Gruver87/dup-lab) | **Start here** — one-command bootstrap |
+| 2 | [`dup-skill-trust-plane`](https://github.com/Gruver87/dup-skill-trust-plane) | Control plane — Skill Cards, self-host API |
+| 3 | [`dup-skills-eval`](https://github.com/Gruver87/dup-skills-eval) | Deterministic eval + E2E dashboard |
+| 4 | [`dup-agent-skills`](https://github.com/Gruver87/dup-agent-skills) | Production skills pack under test |
+| 5 | [`dup-policy-gate`](https://github.com/Gruver87/dup-policy-gate) | Spot-only policy before any order |
 | 6 | [`dup-protocol`](https://github.com/Gruver87/dup-protocol) | Industrial L1 pin (separate evidence tree) |
 
 > Pin in GitHub UI: Profile → Customize your pins → select the six above.
@@ -90,6 +101,7 @@ PowerShell: `.\scripts\demo.ps1` in each repo. Policy gate: `.\scripts\demo_poli
 
 | Layer | Repository | Role |
 |-------|------------|------|
+| Entry | [dup-lab](https://github.com/Gruver87/dup-lab) | Beginner orchestrator · `make bootstrap` |
 | Trust | [dup-skill-trust-plane](https://github.com/Gruver87/dup-skill-trust-plane) | Orchestrates eval+security+policy → Skill Cards · `POST /v1/verify` |
 | Trust | [dup-skills-eval](https://github.com/Gruver87/dup-skills-eval) | Static / honesty gate · [E2E board](https://github.com/Gruver87/dup-skills-eval#ecosystem-e2e-2026-11-17) |
 | Trust | [dup-evidence-graph](https://github.com/Gruver87/dup-evidence-graph) | Query: can product X claim soak/ops_ready? |
